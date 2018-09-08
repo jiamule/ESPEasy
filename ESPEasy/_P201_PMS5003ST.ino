@@ -17,7 +17,7 @@
 #define PLUGIN_VALUENAME1_201 "pm1.0"
 #define PLUGIN_VALUENAME2_201 "pm2.5"
 #define PLUGIN_VALUENAME3_201 "pm10"
-#define PLUGIN_VALUENAME4_201 "ug/m³"
+#define PLUGIN_VALUENAME4_201 "formaldehyde"
 #define PLUGIN_VALUENAME5_201 "temperature"
 #define PLUGIN_VALUENAME6_201 "humidity"
 
@@ -209,7 +209,7 @@ boolean Plugin_201_process_data(struct EventStruct *event) {
   UserVar[event->BaseVarIndex]     = data[3];
   UserVar[event->BaseVarIndex + 1] = data[4];
   UserVar[event->BaseVarIndex + 2] = data[5];
-  UserVar[event->BaseVarIndex + 3] = data[12];
+  UserVar[event->BaseVarIndex + 3] = data[12] / 1000.0;
   UserVar[event->BaseVarIndex + 4] = data[13] / 10.0;
   UserVar[event->BaseVarIndex + 5] = data[14] / 10.0;
   Plugin_201_values_received = true;
